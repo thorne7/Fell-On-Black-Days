@@ -17,27 +17,31 @@ generateBtn.addEventListener("click", writePassword);
 
 */
 
-// var generateBtn = document.querySelector("#generate");
-
+var generateBtn = document.querySelector("#generate");
 var Charset = {
   lowercase: 'abcdefghijklmnopqrstuvwxyz',
   uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   numeric: '0123456789',
   special: ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'}
 
+
+
+function generatePassword(){
+
+var password = "";
+var Charset = "";
+var passwordLength = prompt('Choose password length between 8 - 128 characters')
+
+}
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  var passwordLength = prompt('Choose password length between 8 - 128 characters')
+  passwordText.value = password;
 
   for (var i = 0; i < passwordLength; i++) {
     password = Charset[Math.floor(math.random() * Charset)]
 
   }
-
-
-  passwordText.value = password;
-
-  generateBtn.addEventListener("click", writePassword);
-
 }
+generateBtn.addEventListener("click", writePassword);
