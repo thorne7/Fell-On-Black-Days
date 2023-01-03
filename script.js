@@ -19,20 +19,23 @@ generateBtn.addEventListener("click", writePassword);
 
 var generateBtn = document.querySelector("#generate");
 
-var charlowercase = 'abcdefghijklmnopqrstuvwxyz';
-var charuppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var charnumeric = '0123456789';
+var charlowercase = "abcdefghijklmnopqrstuvwxyz";
+var charuppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var charnumeric = "0123456789";
 var charspecial = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
+  var password = "";
+  var passwordLength = "";
+  var passwordCharacters = "";
 
 function generatePassword() {
 
-  var password = "";
-  var passwordCharacters = "";
-  var passwordLength = prompt('Choose password length between 8 - 128 characters');
 
-  var charLowercase = confirm('Include Lowercase?');
-  if (charLowercase) {
+  var passwordLength = prompt('Choose password length between 8 - 128 characters');
+  passwordLength = parseInt(passwordLength);
+
+  var charLowercaseconfirm = confirm('Include Lowercase?');
+  if (charLowercaseconfirm) {
     passwordCharacters += charlowercase;
   }
 
@@ -52,24 +55,23 @@ function generatePassword() {
   }
 
   console.log(passwordCharacters)
-  
+
   for (var i = 0; i < passwordLength; i++) {
-    password = passwordCharacters[Math.floor(Math.random() * passwordLength.length)]
+    password = password + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)]
 
   }
-  
-  
+  console.log(password) 
+  return password;
+}
   function writePassword() {
   var password = generatePassword();
-  var password = document.querySelector("#password");
-  passwordCharacters.value = password;
-  
-  
-}
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
 
 }
-generateBtn.addEventListener("click", generatePassword);
 
+generateBtn.addEventListener("click", writePassword);
 
 
 
