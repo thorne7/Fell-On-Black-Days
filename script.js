@@ -8,13 +8,14 @@ var charnumeric = "0123456789";
 var charspecial = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
 // Writable variables
+
+
+  // Prompt for password criteria and generate a password'
+function generatePassword() {
+  
   var password = "";
   var passwordLength = "";
   var passwordCharacters = "";
-
-  // This function collects characters into 'passwordCharaters'
-function generatePassword() {
-
   var passwordLength = prompt('Choose password length between 8 - 128 characters');
   passwordLength = parseInt(passwordLength);
 
@@ -40,7 +41,7 @@ function generatePassword() {
 
   console.log(passwordCharacters)
 
-  // for loop producing length of password
+  // Loop for length of password, adding a random character to the new password from the character set each time
   for (var i = 0; i < passwordLength; i++) {
     password = password + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)]
 
