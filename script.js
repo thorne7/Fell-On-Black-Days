@@ -18,30 +18,79 @@ generateBtn.addEventListener("click", writePassword);
 */
 
 var generateBtn = document.querySelector("#generate");
-var Charset = {
-  lowercase: 'abcdefghijklmnopqrstuvwxyz',
-  uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-  numeric: '0123456789',
-  special: ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'}
+
+var charlowercase = 'abcdefghijklmnopqrstuvwxyz';
+var charuppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var charnumeric = '0123456789';
+var charspecial = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
 
+function generatePassword() {
 
-function generatePassword(){
+  var password = "";
+  var passwordCharacters = "";
+  var passwordLength = prompt('Choose password length between 8 - 128 characters');
 
-var password = "";
-var Charset = "";
-var passwordLength = prompt('Choose password length between 8 - 128 characters')
+  var charLowercase = confirm('Include Lowercase?');
+  if (charLowercase) {
+    passwordCharacters += charlowercase;
+  }
 
-}
+  var charUppercase = confirm('Include Uppercase?');
+  if (charUppercase) {
+    passwordCharacters += charuppercase;
+  }
 
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  var charNumber = confirm('Include Numbers?');
+  if (charNumber) {
+    passwordCharacters += charnumeric;
+  }
 
+  var charSpecial = confirm('Include Special Characters?');
+  if (charSpecial) {
+    passwordCharacters += charspecial;
+  }
+
+  console.log(passwordCharacters)
+  
   for (var i = 0; i < passwordLength; i++) {
-    password = Charset[Math.floor(math.random() * Charset)]
+    password = passwordCharacters[Math.floor(Math.random() * passwordLength.length)]
 
   }
+  
+  
+  function writePassword() {
+  var password = generatePassword();
+  var password = document.querySelector("#password");
+  passwordCharacters.value = password;
+  
+  
 }
-generateBtn.addEventListener("click", writePassword);
+
+}
+generateBtn.addEventListener("click", generatePassword);
+
+
+
+
+// GIVEN I need a new, secure password
+// WHEN I click the button to generate a password
+// THEN I am presented with a series of prompts for password criteria
+
+// WHEN prompted for password criteria
+// THEN I select which criteria to include in the password
+
+// WHEN prompted for the length of the password
+// THEN I choose a length of at least 8 characters and no more than 128 characters
+
+// WHEN asked for character types to include in the password
+// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+
+// WHEN I answer each prompt
+// THEN my input should be validated and at least one character type should be selected
+
+// WHEN all prompts are answered
+// THEN a password is generated that matches the selected criteria
+
+// WHEN the password is generated
+// THEN the password is either displayed in an alert or written to the page
