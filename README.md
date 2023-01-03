@@ -10,7 +10,7 @@ Through this project I learnt more about the use of for loops and ahow they work
 -Open in browser to view the web page 
 -Open in Visual Studio Code to view the code (if no VS code, open your developer window)
 
-## ![alt text](/Fell-On-Black-Days/Assets/myscreenshot.png)
+## ![alt text](/Assets/myscreenshot.png)
 
 ## Credits
 
