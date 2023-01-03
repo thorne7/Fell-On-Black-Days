@@ -29,7 +29,7 @@ var charspecial = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
   var passwordCharacters = "";
 
 function generatePassword() {
-
+  document.preventDefault();
 
   var passwordLength = prompt('Choose password length between 8 - 128 characters');
   passwordLength = parseInt(passwordLength);
@@ -62,16 +62,18 @@ function generatePassword() {
   }
   console.log(password) 
   return password;
+
 }
   function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+return passwordText
 }
 
 generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", reset(Passwordtext));
 
 
 
