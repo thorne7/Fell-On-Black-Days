@@ -7,7 +7,7 @@ Through this project I learnt more about the use of for loops and ahow they work
 
 ## Installation
 
--Open in browser to view the web page 
+-Open in browser to view the web page (Link here - https://thorne7.github.io/Fell-On-Black-Days/ )
 -Open in Visual Studio Code to view the code (if no VS code, open your developer window)
 
 ## ![alt text](/Assets/myscreenshot.png)
